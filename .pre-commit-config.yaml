@@ -1,0 +1,23 @@
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.5.0
+      hooks:
+        - id: trailing-whitespace
+
+    - repo: local
+      hooks:
+        - id: isort
+          name: sorting imports
+          entry: isort
+          language: system
+          always_run: true
+          args:
+            - '--line-length=120'
+        - id: pylint
+          name: pylint analysis
+          entry: pylint utils testcases pages
+          language: system
+          always_run: true
+          pass_filenames: false
+          args:
+            - '--disable=missing-function-docstring'
